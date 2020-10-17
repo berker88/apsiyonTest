@@ -1,0 +1,49 @@
+.theme-selection-box{
+  position: fixed;
+  top: 300px;
+  right: 0px;
+  width: 200px;
+  height: 100px;
+  background-color: white;
+  border: 1px solid black;
+}
+.theme-selection-box-hidden{
+  right: -200px;
+}
+.theme-selection-box-header{
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.theme-selection-box-options{
+  width: 100%;
+  text-align: center;
+}
+.theme-selection-box-option{
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  position: relative;
+  display: inline-block;
+  margin-left: 10px;
+}
+.theme-selection-box-option:first-child{
+  margin-left: 0px;
+}
+.theme-selection-box-toggle{
+  width: 70px;
+  height: 60px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-right: 10px;
+  background-color: white;
+  border: 1px solid black;
+  border-right: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  text-align: center;
+  position: absolute;
+  top: -1px;
+  right: 199px;
+}

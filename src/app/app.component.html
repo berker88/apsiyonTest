@@ -1,0 +1,39 @@
+<div class="app-container mat-typography">
+  <div [ngClass]="getSelectedTheme()">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="theme-selection-box"[class.theme-selection-box-hidden]="!showThemeSelection">
+    <div class="theme-selection-box-header">Tema Rengi Seçiniz:</div>
+    <div class="theme-selection-box-options">
+      <div class="theme-selection-box-option" [class.primary-theme]="true">
+        <button mat-mini-fab color="primary" *ngIf="selectedTheme == 'primary-theme'" class="btn-sm">
+          <mat-icon>check</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" (click)="setTheme('primary-theme')" *ngIf="selectedTheme != 'primary-theme'" class="btn-sm">
+
+        </button>
+      </div>
+      <div class="theme-selection-box-option" [class.secondary-theme]="true">
+        <button mat-mini-fab color="primary" *ngIf="selectedTheme == 'secondary-theme'" class="btn-sm">
+          <mat-icon>check</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" (click)="setTheme('secondary-theme')" *ngIf="selectedTheme != 'secondary-theme'" class="btn-sm">
+
+        </button>
+      </div>
+      <div class="theme-selection-box-option" [class.third-theme]="true">
+        <button mat-mini-fab color="primary" *ngIf="selectedTheme == 'third-theme'" class="btn-sm">
+          <mat-icon>check</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" (click)="setTheme('third-theme')" *ngIf="selectedTheme != 'third-theme'" class="btn-sm">
+
+        </button>
+      </div>
+    </div>
+    <div class="theme-selection-box-toggle">
+      <button mat-mini-fab color="primary" class="btn-sm" (click)="toggleThemeSelectionBox()">
+        <mat-icon>settings</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

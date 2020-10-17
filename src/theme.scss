@@ -1,0 +1,66 @@
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// **Be sure that you only ever include this mixin once!**
+@include mat-core();
+
+// Define the default theme (same as the example above).
+$primary-theme-primary: mat-palette($mat-brown);
+$primary-theme-accent:  mat-palette($mat-grey,200,400,600);
+$primary-theme-warn:    mat-palette($mat-deep-orange);
+$primary-theme-success:  mat-palette($mat-green);
+$primary-theme-danger:  mat-palette($mat-red);
+$primary-theme:   mat-light-theme((
+  color: (
+    primary: $primary-theme-primary,
+    accent: $primary-theme-accent,
+    warn: $primary-theme-warn
+  )
+));
+
+// Include the default theme styles (color and default density)
+@include angular-material-theme($primary-theme);
+
+$secondary-theme-primary: mat-palette($mat-grey,200,400,600);
+$secondary-theme-accent:  mat-palette($mat-blue-gray,200,400,600);
+$secondary-theme-warn:    mat-palette($mat-deep-orange);
+$secondary-theme-success:  mat-palette($mat-green);
+$secondary-theme-danger:  mat-palette($mat-red);
+$secondary-theme:   mat-light-theme((
+  color: (
+    primary: $secondary-theme-primary,
+    accent: $secondary-theme-accent,
+    warn: $secondary-theme-warn
+  )
+));
+.secondary-theme {
+  @include angular-material-theme($secondary-theme);
+}
+
+$third-theme-primary: mat-palette($mat-blue-grey);
+$third-theme-accent:  mat-palette($mat-grey,200,400,600);
+$third-theme-warn:    mat-palette($mat-deep-orange);
+$third-theme-success:  mat-palette($mat-green);
+$third-theme-danger:  mat-palette($mat-red);
+$third-theme:   mat-light-theme((
+  color: (
+    primary: $third-theme-primary,
+    accent: $third-theme-accent,
+    warn: $third-theme-warn
+  )
+));
+.third-theme {
+  @include angular-material-theme($third-theme);
+}
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Open Sans, sans-serif',
+  $body-1: mat-typography-level(16px, 24px, 500)
+);
+@include mat-core($custom-typography);
+button:focus, button:active:focus, button.active:focus {
+  outline: none !important;
+  outline-style: none !important;
+}

@@ -1,0 +1,36 @@
+.custom-mat-toolbar{
+  height: auto;
+  padding-top: 15px !important;
+  padding-bottom: 20px !important;
+}
+.content-header{
+  font-size: 32px;
+  font-weight: 600;
+  height: 36px;
+  line-height: 36px;
+}
+.content-add-form-field{
+  text-align: center;
+  width: 100%;
+}
+.add-dialog-title{
+  width: 100%;
+  text-align: center;
+  color: darkgreen;
+  font-size: 48px;
+  .mat-icon{
+    height: 48px;
+    width: 48px;
+    font-size: 48px;
+  }
+}
+.add-dialog-content{
+  width: 100%;
+  text-align: center;
+  margin: 0px 0px 15px;
+}
+.add-dialog-actions{
+  width: 100%;
+  text-align: center;
+  display: block;
+}

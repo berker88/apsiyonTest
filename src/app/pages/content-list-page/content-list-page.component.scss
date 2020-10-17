@@ -1,0 +1,119 @@
+.select-box-icon{
+  float: right;
+  top: -3px;
+  position: relative;
+}
+.select-box-option{
+  width: 140px;
+}
+.custom-mat-toolbar{
+  height: auto;
+  padding-top: 15px !important;
+  padding-bottom: 20px !important;
+}
+.content-header{
+  font-size: 32px;
+  font-weight: 600;
+  height: 36px;
+  line-height: 36px;
+}
+.media-item-container{
+  margin: 15px 0px;
+  background-color: #efefef;
+}
+.media-item-name-area{
+  line-height: 60px;
+}
+.media-item-delete-area{
+  top: -3px;
+  display: none;
+}
+.media-item-name-area:hover .media-item-delete-area{
+  display: inline-block;
+}
+.media-item-score-area{
+  width: 100%;
+  line-height: 60px;
+  text-align: center;
+  height: 60px;
+  overflow: hidden;
+  .mat-icon{
+    width: 50px;
+    font-size: 48px;
+    color: #fada5e;
+    margin-right: 15px;
+    margin-top: 5px;
+  }
+  span{
+    top: -14px;
+    position: relative;
+    font-size: 24px;
+    font-weight: 600;
+  }
+}
+.media-item-give-score-area{
+  width: 100%;
+  text-align: right;
+  .media-item-give-score-area-writing{
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .media-item-give-score-area-increase{
+    height: 20px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    .mat-icon{
+      top: -20px;
+      font-size: 300%;
+      color: darkgreen;
+      position: relative;
+    }
+  }
+  .media-item-give-score-area-decrease{
+    height: 20px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    .mat-icon{
+      top: -20px;
+      font-size: 300%;
+      color: darkred;
+      position: relative;
+    }
+  }
+}
+.media-items-pagination{
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+.media-items-pagination-item{
+  display: inline-block;
+  margin-left: 10px;
+}
+.media-items-pagination-item:first-child{
+  margin-left: 0px;
+}
+.delete-dialog-title{
+  width: 100%;
+  text-align: center;
+  color: darkred;
+  font-size: 48px;
+  .mat-icon{
+    height: 48px;
+    width: 48px;
+    font-size: 48px;
+  }
+}
+.delete-dialog-content{
+  width: 100%;
+  text-align: center;
+  margin: 0px 0px 15px;
+}
+.delete-dialog-actions{
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+

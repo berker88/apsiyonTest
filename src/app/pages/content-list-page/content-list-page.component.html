@@ -1,0 +1,113 @@
+<mat-toolbar color="accent" class="header custom-mat-toolbar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="w-100 text-center">
+          <div class="content-header">Case Study</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <button mat-raised-button color="primary" class="w-100" [routerLink]="['/add']">
+          <mat-icon>add</mat-icon>
+          Yeni Ekle
+        </button>
+      </div>
+      <div class="col-md-3 col-sm-12 col-xs-12 order-md-first">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <button mat-raised-button [matMenuTriggerFor]="mediaTypeSelectionMenu" color="primary" class="w-100">
+              Türler
+              <mat-icon>expand_more</mat-icon>
+            </button>
+            <mat-menu #mediaTypeSelectionMenu="matMenu">
+              <mat-selection-list #mediaTypesSelection [multiple]="false" (selectionChange)="setSelectedMediaType($event)">
+                <mat-list-option *ngFor="let mediaType of typesOfMedia" [value]="mediaType.slug">
+                  <div class="select-box-option">
+                    <span>{{mediaType.name}}</span>
+                    <mat-icon *ngIf="selectedMediaType == mediaType.slug" class="select-box-icon">check_box</mat-icon>
+                    <mat-icon *ngIf="selectedMediaType != mediaType.slug" class="select-box-icon">check_box_outline_blank</mat-icon>
+                  </div>
+                </mat-list-option>
+              </mat-selection-list>
+            </mat-menu>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <button mat-raised-button [matMenuTriggerFor]="orderSelectionMenu" color="primary" class="w-100">
+              Sırala
+              <mat-icon>expand_more</mat-icon>
+            </button>
+            <mat-menu #orderSelectionMenu="matMenu">
+              <mat-selection-list #orderTypesSelection [multiple]="false" (selectionChange)="setSelectedOrderType($event)">
+                <mat-list-option *ngFor="let orderType of typesOfOrder" [value]="orderType.slug">
+                  {{orderType.name}}
+                </mat-list-option>
+              </mat-selection-list>
+            </mat-menu>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>
+<div class="container">
+  <mat-card class="media-item-container" *ngFor="let mediaItem of filteredMediaArray | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="media-item-name-area">
+          {{mediaItem.name}} ({{mediaItem.year}})
+          <button mat-icon-button color="warn" class="media-item-delete-area" (click)="openDeleteDialog(mediaItem)">
+            <mat-icon>delete_outline</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="media-item-score-area">
+          <mat-icon>star</mat-icon>
+          <span>{{mediaItem.score}}</span>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="media-item-give-score-area">
+          <div class="media-item-give-score-area-writing">
+            Puan Ver
+          </div>
+          <div class="media-item-give-score-area-increase">
+            <button mat-button class="btn-lg" (click)="addScore(mediaItem)"><mat-icon>arrow_drop_up</mat-icon></button>
+          </div>
+          <div class="media-item-give-score-area-decrease">
+            <button mat-button class="btn-lg" (click)="decreaseScore(mediaItem)"><mat-icon>arrow_drop_down</mat-icon></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+  <div class="media-items-pagination">
+    <div class="media-items-pagination-item">
+      <button mat-raised-button color="primary" (click)="prevPage()">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+    </div>
+    <div class="media-items-pagination-item" *ngFor="let pagination of getTotalPageNumbers()">
+      <button mat-raised-button color="primary" (click)="page = pagination">
+        {{pagination}}
+      </button>
+    </div>
+    <div class="media-items-pagination-item">
+      <button mat-raised-button color="primary" (click)="nextPage()">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+<ng-template #deleteMediaDialog>
+  <h2 mat-dialog-title class="delete-dialog-title"><mat-icon>delete_outline</mat-icon></h2>
+
+  <mat-dialog-content class="delete-dialog-content">
+    {{mediaForDeletion.name}} ({{mediaForDeletion.year}}) Silmek istediğine emin misin?
+  </mat-dialog-content>
+
+  <mat-dialog-actions class="delete-dialog-actions">
+    <button mat-raised-button color="primary" mat-dialog-close>Kapat</button>
+    <button mat-raised-button color="warn" (click)="deleteMedia()">Sil</button>
+  </mat-dialog-actions>
+</ng-template>

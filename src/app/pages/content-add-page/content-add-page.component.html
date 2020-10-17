@@ -1,0 +1,76 @@
+<mat-toolbar color="accent" class="header custom-mat-toolbar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="w-100 text-center">
+          <div class="content-header">Case Study</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        &nbsp;
+      </div>
+      <div class="col-md-3 col-sm-12 col-xs-12 order-md-first">
+        <div class="row">
+          <button mat-raised-button color="primary" class="w-100" [routerLink]="['']">
+            <mat-icon>chevron_left</mat-icon>
+            Listeye Dön
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>
+<div class="container">
+  <form class="add-form" (submit)="openAddDialog()" [formGroup]="group" #addForm="ngForm">
+    <div class="row mb-5 mt-5">
+      <div class="col-md-4 offset-md-4">
+        <div class="content-add-form-field">
+          <mat-radio-group aria-label="Select an option" required [(ngModel)]="newItem.group" name="group" formControlName="group">
+            <mat-radio-button value="movies">Film</mat-radio-button>
+            <mat-radio-button value="series" class="ml-5">Dizi</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col-md-4 offset-md-4">
+        <mat-form-field class="content-add-form-field">
+          <input matInput placeholder="Fil / Dizi Adı" [(ngModel)]="newItem.name" required name="name" formControlName="name">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col-md-2 offset-md-5">
+        <mat-form-field class="content-add-form-field">
+          <input matInput placeholder="Yılı" [(ngModel)]="newItem.year" required name="year" type="number" formControlName="year">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col-md-2 offset-md-5">
+        <mat-form-field class="content-add-form-field">
+          <input matInput placeholder="Puanı" [(ngModel)]="newItem.score" required name="score" type="number" formControlName="score">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col-md-2 offset-md-5">
+        <div class="content-add-form-field">
+          <button mat-raised-button color="primary" [disabled]="!addForm.valid">KAYDET</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<ng-template #addMediaDialog>
+  <h2 mat-dialog-title class="add-dialog-title"><mat-icon>add</mat-icon></h2>
+
+  <mat-dialog-content class="add-dialog-content">
+    {{newItem.name}} ({{newItem.year}}) Eklemek istediğine emin misin?
+  </mat-dialog-content>
+
+  <mat-dialog-actions class="add-dialog-actions">
+    <button mat-raised-button color="primary" mat-dialog-close>Kapat</button>
+    <button mat-raised-button color="primary" (click)="addMedia()">Ekle</button>
+  </mat-dialog-actions>
+</ng-template>
